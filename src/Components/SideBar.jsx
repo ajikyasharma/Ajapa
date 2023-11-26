@@ -1,6 +1,7 @@
-import React, { forwardRef } from "react";
-import { HomeIcon, CreditCardIcon, UserIcon } from "@heroicons/react/24/solid";
+import React, { Fragment, forwardRef } from "react";
+import { HomeIcon, CreditCardIcon, UserIcon, ChevronDownIcon, PencilIcon, Cog8ToothIcon } from "@heroicons/react/24/solid";
 import { Link, NavLink } from "react-router-dom";
+import { Menu, Transition } from "@headlessui/react";
 
 const SideBar = forwardRef(({ showSideBar }, ref) => {
   return (
@@ -35,6 +36,57 @@ const SideBar = forwardRef(({ showSideBar }, ref) => {
             <div>
               <p>Home</p>
             </div>
+            <Menu as="div" className="relative inline-block text-left">
+          <div>
+            <Menu.Button className="inline-flex w-full justify-center items-center">
+
+              <ChevronDownIcon className="ml-10 h-4 w-4 text-gray-700" />
+            </Menu.Button>
+          </div>
+          <Transition
+            as={Fragment}
+            enter="transition ease-out duration-100"
+            enterFrom="transform scale-95"
+            enterTo="transform scale-100"
+            leave="transition ease-in duration=75"
+            leaveFrom="transform scale-100"
+            leaveTo="transform scale-95"
+          >
+            <Menu.Items className="absolute   w-56 z-50 mt-2 origin-top-right bg-white rounded shadow-sm">
+              <div className="p-1">
+                <Menu.Item>
+                  <Link
+                    to="#"
+                    className="flex hover:bg-orange-500 hover:text-white text-gray-700 rounded p-2 text-sm group transition-colors items-center"
+                  >
+                    <PencilIcon className="h-4 w-4 mr-2" />
+                    Edit
+                  </Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link
+                    to="#"
+                    className="flex hover:bg-orange-500 hover:text-white text-gray-700 rounded p-2 text-sm group transition-colors items-center"
+                  >
+                    <CreditCardIcon className="h-4 w-4 mr-2" />
+                    Billing
+                  </Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link
+                    to="#"
+                    className="flex hover:bg-orange-500 hover:text-white text-gray-700 rounded p-2 text-sm group transition-colors items-center"
+                  >
+                    <Cog8ToothIcon className="h-4 w-4 mr-2" />
+                    Settings
+                  </Link>
+                </Menu.Item>
+              </div>
+            </Menu.Items>
+          </Transition>
+        </Menu>
+
+            
           </div>
         </NavLink>
         <NavLink
