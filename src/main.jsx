@@ -12,16 +12,43 @@ import Layout from "./Layout.jsx";
 import Home from "./Components/Home.jsx";
 import Account from "./Components/Account.jsx";
 import Billing from "./Components/Billing.jsx";
+import Login from "./Components/Login.jsx";
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
-      <Route path="/" element={<Home />} />
-      <Route path="/account" element={<Account />} />
-      <Route path="/billing" element={<Billing />} />
-    </Route>
-  )
-);
+// const router = createBrowserRouter(
+//   createRoutesFromElements(
+//     <Route path="/" element={<Layout />}>
+//       <Route path="/" element={<Home />} />
+//       <Route path="/account" element={<Account />} />
+//       <Route path="/billing" element={<Billing />} />
+//     </Route>
+//   )
+// );
+
+const router= createBrowserRouter([
+  {
+    path:'/',
+    element: <Layout />,
+    children :[
+      {
+        path:'/',
+        element:<Home />
+      } ,
+      {
+        path:'/account',
+        element : <Account />
+      },
+      {
+        path:'/billing',
+        element :<Billing />
+      } 
+    ]
+  },
+  {
+    path:'/login',
+    element:<Login />
+  }
+
+])
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
