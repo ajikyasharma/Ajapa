@@ -13,6 +13,8 @@ import Home from "./Components/Home.jsx";
 import Account from "./Components/Account.jsx";
 import Billing from "./Components/Billing.jsx";
 import Login from "./Components/Login.jsx";
+import SignUp from "./Components/SignUp.jsx";
+import Loading from "./Components/Loading.jsx";
 
 // const router = createBrowserRouter(
 //   createRoutesFromElements(
@@ -46,6 +48,10 @@ const router= createBrowserRouter([
   {
     path:'/login',
     element:<Login />
+  },
+  {
+    path:'/signup',
+    element:<SignUp />
   }
 
 ])
